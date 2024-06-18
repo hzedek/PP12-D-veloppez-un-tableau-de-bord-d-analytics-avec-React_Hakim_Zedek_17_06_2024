@@ -1,0 +1,15 @@
+.navVertical {
+  width: 117px;
+  background-color: black;
+  color: white;
+  height: 89vh;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  justify-content: center;
+  z-index: 2;
+  img {
+    width: 64px;
+    margin: 0 auto;
+  }
+}
