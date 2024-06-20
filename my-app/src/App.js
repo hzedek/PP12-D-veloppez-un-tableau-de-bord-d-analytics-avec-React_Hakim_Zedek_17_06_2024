@@ -1,12 +1,17 @@
-import Header from "./Componants/Header";
 import NavVertical from "./Componants/NavVertical";
 import { Fragment } from "react";
+import Greeting from "./Componants/Greeting";
+import "./styles/PageLayout.scss"
 
 function App() {
   return (
     <Fragment>
-      <Header />
-      <NavVertical/>
+      <div className="PageLayout">
+        <NavVertical />
+        <div>
+          <Greeting />
+        </div>
+      </div>
     </Fragment>
   );
 }
