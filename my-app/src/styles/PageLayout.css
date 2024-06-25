@@ -1,3 +1,9 @@
 .PageLayout {
   display: flex;
+}
+.PageLayout span {
+  color: red;
+}
+.PageLayout .DivPageLayout {
+  margin-left: 40px;
 }/*# sourceMappingURL=PageLayout.css.map */

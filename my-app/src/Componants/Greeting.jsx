@@ -5,8 +5,9 @@ function Greeting() {
   const name = data[0].userInfos.firstName;
   return (
     <Fragment>
-      <h2>Bonjour {name}</h2>
-      <p>Félicitation ! Vous avez explosé vos objectifs hier 👏</p>
+      
+      <h2>Bonjour <span>{name}</span></h2>
+      <h3>Félicitation ! Vous avez explosé vos objectifs hier 👏</h3>
     </Fragment>
   );
 }

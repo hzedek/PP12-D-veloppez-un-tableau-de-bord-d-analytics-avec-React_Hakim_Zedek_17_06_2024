@@ -1,3 +1,9 @@
 .PageLayout{
     display: flex;
+    span{
+        color: red;
+    }
+    .DivPageLayout{
+        margin-left:40px; 
+    }
 }
