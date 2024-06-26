@@ -1,28 +1,36 @@
-.ChartsLayout {
-  background-color: #FBFBFB;
-  width: 835px;
-  height: 320px;
+.DivAsideLayout {
   display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  .TextLayout {
-    p {
-      margin-left: 40px;
-    }
+  gap: 20px;
+  .AsideChartsLayout {
+    background-color: #fbfbfb;
+    width: 835px;
+    height: 320px;
     display: flex;
+    flex-direction: column;
     justify-content: space-between;
-    ul {
+    .TextLayout {
+      p {
+        margin-left: 40px;
+      }
       display: flex;
-      gap: 40px;
-      margin-right: 40px;
+      justify-content: space-between;
+      ul {
+        display: flex;
+        gap: 40px;
+        margin-right: 40px;
 
-      li:last-child {
-        color: red;
-        span {
-          color: black;
+        li:last-child {
+          color: red;
+          span {
+            color: black;
+          }
         }
       }
     }
+  }
+  .DivChartsLayout {
+    display: flex;
+    gap: 40px;
   }
 }
 .tooltip {

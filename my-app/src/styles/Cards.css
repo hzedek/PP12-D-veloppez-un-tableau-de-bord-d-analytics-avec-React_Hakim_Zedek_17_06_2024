@@ -1,0 +1,35 @@
+.CardsLayout {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.CardsLayout .divCard {
+  width: 258px;
+  height: 124px;
+  background-color: #FBFBFB;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+  border-radius: 5px;
+}
+.CardsLayout .divCard img {
+  width: 60px;
+  height: 60px;
+}
+.CardsLayout .divCard .divCardText {
+  display: flex;
+  flex-direction: column;
+  height: 60px;
+  justify-content: space-between;
+}
+.CardsLayout .divCard .divCardText p:first-child {
+  font-size: 20px;
+  font-weight: bold;
+  margin: 0;
+}
+.CardsLayout .divCard .divCardText p:last-child {
+  font-size: 14px;
+  color: #74798C;
+  margin: 0;
+}/*# sourceMappingURL=Cards.css.map */

@@ -10,30 +10,43 @@ import {
   Radar,
 } from "recharts";
 
+
+
+
+const kindMapping = datas[1].kind;
+
+const formattedKindMapping = Object.fromEntries(
+  Object.entries(kindMapping).map(([key, value]) => [
+    key,
+    value.charAt(0).toUpperCase() + value.slice(1),
+  ])
+);
+
+const radarData = datas[1].data.map((item) => ({
+  kind: formattedKindMapping[item.kind],
+  value: item.value,
+}));
+
+// Reverse the order of the data
+const reversedData = radarData.reverse();
+
 const CustomRadarChart = () => {
   return (
-    <div className="DivRadarChart">
-      <ResponsiveContainer
-        style={{ backgroundColor: "#FF0101", borderRadius: "10px" }}
-        width={258}
-        height={263}
-      >
-        <p>Durée moyenne des sessions</p>
-        <RadarChart data={datas[1].averagesessions}>
-          <XAxis
-            dataKey="day"
-            axisLine={false}
-            tickLine={false}
-            style={{ fill: "#FFFFFF" }}
-          />
-          <YAxis domain={[-10, 100]} hide="true" />
-          <Radar
-            dot={false}
-            type={"monotone"}
-            stroke="white"
-            radius={[20, 20, 0, 0]}
-            dataKey="sessionLength"
-          />
+    <div
+      className="DivRadarChart"
+      style={{
+        backgroundColor: "#282D30",
+        borderRadius: "10px",
+        color: "white",
+        height: "263px",
+      }}
+    >
+      <ResponsiveContainer width={258}>
+        <RadarChart data={reversedData}>
+          <PolarGrid polarGridType="circle" />
+          <PolarAngleAxis tick={{ fill: 'white',fontSize: "10px"}} dataKey="kind" />
+          <PolarRadiusAxis  axisLine={false} tick={false} />
+          <Radar style={{width:"170px"}} name="User" dataKey="value" fill="#FF0101" fillOpacity={0.6} />
         </RadarChart>
       </ResponsiveContainer>
     </div>

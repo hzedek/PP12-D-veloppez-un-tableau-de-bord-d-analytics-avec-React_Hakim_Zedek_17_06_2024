@@ -1,7 +1,7 @@
 .PageLayout {
   display: flex;
 }
-.PageLayout span {
+.PageLayout .ul_span {
   color: red;
 }
 .PageLayout .DivPageLayout {

@@ -1,0 +1,15 @@
+.legend-value {
+  font-size: 26px;
+  color: black;
+  font-weight: bold;
+}
+
+.DivRadialBarChart {
+  position: relative;
+}
+.DivRadialBarChart .pRadialBarChart {
+  position: absolute;
+  top: 5px;
+  left: 30px;
+  color: black;
+}/*# sourceMappingURL=RadialBarChart.css.map */
