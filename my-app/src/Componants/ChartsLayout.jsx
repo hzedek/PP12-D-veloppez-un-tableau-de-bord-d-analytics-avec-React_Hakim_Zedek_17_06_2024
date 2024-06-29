@@ -8,7 +8,7 @@ import React from "react";
 
 function ChartsLayout() {
   return (
-    <div  className="DivAsideLayout">
+    <div className="DivAsideLayout">
       <aside className="AsideChartsLayout">
         <div className="TextLayout">
           <p>Activité quotidienne</p>
@@ -27,7 +27,7 @@ function ChartsLayout() {
         </div>
       </aside>
       <aside>
-        <Cards/>
+        <Cards />
       </aside>
     </div>
   );

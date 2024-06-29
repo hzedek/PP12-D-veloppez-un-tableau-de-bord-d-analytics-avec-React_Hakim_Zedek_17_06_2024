@@ -19,28 +19,28 @@ function Cards() {
         <img src={icon1} alt="icon" />
         <div className="divCardText">
           <p>{caloriesData}</p>
-        <p>Calories</p>
+          <p>Calories</p>
         </div>
       </div>
       <div className="divCard">
         <img src={icon2} alt="icon" />
         <div className="divCardText">
           <p>{proteineData}</p>
-        <p>Proteines</p>
+          <p>Proteines</p>
         </div>
       </div>
       <div className="divCard">
         <img src={icon3} alt="icon" />
         <div className="divCardText">
           <p>{glucidesData}</p>
-        <p>Glucides</p>
+          <p>Glucides</p>
         </div>
       </div>
       <div className="divCard">
         <img src={icon4} alt="icon" />
         <div className="divCardText">
           <p>{lipidesData}</p>
-        <p>Lipides</p>
+          <p>Lipides</p>
         </div>
       </div>
     </div>

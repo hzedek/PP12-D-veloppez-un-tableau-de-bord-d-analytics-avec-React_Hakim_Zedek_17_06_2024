@@ -1,5 +1,6 @@
-import datas from "../mock.json";
-import React from "react";
+//import datas from "../mock.json";
+import React, { useState } from "react";
+import ApiCall from "./ApiCall";
 import "../styles/LineTooltip.scss";
 import {
   XAxis,
@@ -14,7 +15,10 @@ const LineTooltip = ({ active, payload }) => {
   if (active && payload && payload.length) {
     return (
       <div className="LineTooltip">
-        <p className="tooltiptext" style={{color:"black" }}>{`${payload[0].value}min`}</p>
+        <p
+          className="tooltiptext"
+          style={{ color: "black" }}
+        >{`${payload[0].value}min`}</p>
       </div>
     );
   }
@@ -23,6 +27,15 @@ const LineTooltip = ({ active, payload }) => {
 };
 
 const CustomLineChart = () => {
+  const [datas, setDatas] = useState(null);
+
+  const handleDataFetch = (data) => {
+    setDatas(data);
+  };
+
+  if (!datas) {
+    return <ApiCall prop="12/average-sessions" onDataFetch={handleDataFetch} />;
+  }
   return (
     <div className="DivLineChart">
       <ResponsiveContainer
@@ -31,7 +44,7 @@ const CustomLineChart = () => {
         height={263}
       >
         <p>Durée moyenne des sessions</p>
-        <LineChart data={datas[1].averagesessions}>
+        <LineChart data={datas.sessions}>
           <XAxis
             dataKey="day"
             axisLine={false}

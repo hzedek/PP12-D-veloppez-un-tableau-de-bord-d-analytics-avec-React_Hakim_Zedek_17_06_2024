@@ -1,5 +1,6 @@
-import datas from "../mock.json";
-import React from "react";
+//import datas from "../mock.json";
+import React, { useState } from "react";
+import ApiCall from "./ApiCall";
 import {
   RadialBarChart,
   RadialBar,
@@ -8,16 +9,6 @@ import {
   PolarAngleAxis,
 } from "recharts";
 import "../styles/RadialBarChart.scss";
-
-// Données formatées pour le RadialBarChart
-const radialBarData = [
-  {
-    name: datas[1].todayScore * 100,
-    value: datas[1].todayScore * 100,
-    fill: "red",
-    fontSize: "26px",
-  },
-];
 
 // Custom Legend
 const renderLegend = ({ payload }) => {
@@ -33,6 +24,25 @@ const renderLegend = ({ payload }) => {
 };
 
 const CustomRadialBarChart = () => {
+  const [datas, setDatas] = useState(null);
+
+  const handleDataFetch = (data) => {
+    setDatas(data);
+  };
+
+  if (!datas) {
+    return <ApiCall prop="12" onDataFetch={handleDataFetch} />;
+  }
+
+  //formatted data for RadialBarChart
+  const radialBarData = [
+    {
+      name: datas.todayScore * 100,
+      value: datas.todayScore * 100,
+      fill: "red",
+      fontSize: "26px",
+    },
+  ];
   return (
     <div
       className="DivRadialBarChart"

@@ -1,5 +1,6 @@
-import datas from "../mock.json";
-import React from "react";
+//import datas from "../mock.json";
+import React, { useState } from "react";
+import ApiCall from "./ApiCall";
 import "../styles/RadarChart.scss";
 import {
   PolarGrid,
@@ -9,24 +10,34 @@ import {
   Radar,
 } from "recharts";
 
-const kindMapping = datas[1].kind;
-
-const formattedKindMapping = Object.fromEntries(
-  Object.entries(kindMapping).map(([key, value]) => [
-    key,
-    value.charAt(0).toUpperCase() + value.slice(1),
-  ])
-);
-
-const radarData = datas[1].data.map((item) => ({
-  kind: formattedKindMapping[item.kind],
-  value: item.value,
-}));
-
-// Reverse the order of the data
-const reversedData = radarData.reverse();
-
 const CustomRadarChart = () => {
+  const [datas, setDatas] = useState(null);
+
+  const handleDataFetch = (data) => {
+    setDatas(data);
+  };
+
+  if (!datas) {
+    return <ApiCall prop="12/performance" onDataFetch={handleDataFetch} />;
+  }
+
+  const kindMapping = datas.kind;
+
+  const formattedKindMapping = Object.fromEntries(
+    Object.entries(kindMapping).map(([key, value]) => [
+      key,
+      value.charAt(0).toUpperCase() + value.slice(1),
+    ])
+  );
+
+  const radarData = datas.data.map((item) => ({
+    kind: formattedKindMapping[item.kind],
+    value: item.value,
+  }));
+
+  // Reverse the order of the data
+  const reversedData = radarData.reverse();
+
   return (
     <div
       className="DivRadarChart"
