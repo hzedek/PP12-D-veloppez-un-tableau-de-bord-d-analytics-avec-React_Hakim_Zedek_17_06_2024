@@ -9,28 +9,26 @@ import {
 } from "recharts";
 import "../styles/RadialBarChart.scss";
 
-
-
 // Données formatées pour le RadialBarChart
 const radialBarData = [
   {
     name: datas[1].todayScore * 100,
     value: datas[1].todayScore * 100,
     fill: "red",
-    fontSize:"26px"
+    fontSize: "26px",
   },
 ];
 
 // Custom Legend
 const renderLegend = ({ payload }) => {
   return (
-      <p>
-        <span className="legend-value">{payload[0].value}%</span>
-        <br />
-        de votre
-        <br />
-        objectif
-      </p>
+    <p>
+      <span className="legend-value">{payload[0].value}%</span>
+      <br />
+      de votre
+      <br />
+      objectif
+    </p>
   );
 };
 
@@ -49,7 +47,7 @@ const CustomRadialBarChart = () => {
         alignItems: "center",
       }}
     >
-        <p className="pRadialBarChart">Score</p>
+      <p className="pRadialBarChart">Score</p>
       <ResponsiveContainer width={258} height="100%">
         <RadialBarChart
           cx="50%"

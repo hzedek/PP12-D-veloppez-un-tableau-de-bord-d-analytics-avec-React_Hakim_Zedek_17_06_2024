@@ -1,9 +1,18 @@
-.PageLayout{
-    display: flex;
-    .ul_span{
-        color: red;
-    }
-    .DivPageLayout{
-        margin-left:40px; 
-    }
+.PageLayout {
+  display: flex;
+  h2 {
+    font-size: 38px;
+    margin-bottom: 0;
+  }
+  h3 {
+    font-size: 18px;
+    font-weight: 500;
+    margin-bottom: 20px;
+  }
+  .redSpan {
+    color: red;
+  }
+  .DivPageLayout {
+    margin-left: 80px;    
+  }
 }

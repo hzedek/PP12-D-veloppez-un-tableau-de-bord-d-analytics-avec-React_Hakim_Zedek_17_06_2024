@@ -1,4 +1,4 @@
-import datas from "../mock.json";
+//import datas from "../mock.json";
 import React from "react";
 import {
   XAxis,
@@ -9,7 +9,9 @@ import {
   BarChart,
   Bar
 } from "recharts";
+import ApiCall from "./ApiCall";
 
+let datas = ApiCall("12/activity")
 const CustomTooltip = ({ active, payload }) => {
     if (active && payload && payload.length) {
       return (
@@ -39,7 +41,7 @@ const CustomBarChart = () => {
     const minValue = Math.min(...KgArray())
     const midValue = (maxValue + minValue)/ 2;
   return (
-    <ResponsiveContainer width="100%" height={230}>
+    <ResponsiveContainer width="100%" height={200}>
       <BarChart
         data={datas[1].sessions}
         margin={{ top: 10, right: 30, left: 0, bottom: 0 }}

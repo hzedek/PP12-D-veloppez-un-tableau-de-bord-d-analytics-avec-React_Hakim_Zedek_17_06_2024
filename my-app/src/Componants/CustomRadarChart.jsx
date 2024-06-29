@@ -4,14 +4,10 @@ import "../styles/RadarChart.scss";
 import {
   PolarGrid,
   PolarAngleAxis,
-  PolarRadiusAxis,
   ResponsiveContainer,
   RadarChart,
   Radar,
 } from "recharts";
-
-
-
 
 const kindMapping = datas[1].kind;
 
@@ -43,10 +39,20 @@ const CustomRadarChart = () => {
     >
       <ResponsiveContainer width={258}>
         <RadarChart data={reversedData}>
-          <PolarGrid polarGridType="circle" />
-          <PolarAngleAxis tick={{ fill: 'white',fontSize: "10px"}} dataKey="kind" />
-          <PolarRadiusAxis  axisLine={false} tick={false} />
-          <Radar style={{width:"170px"}} name="User" dataKey="value" fill="#FF0101" fillOpacity={0.6} />
+          <PolarGrid
+            radialLines={false} //remove the line from the spider net
+          />
+          <PolarAngleAxis
+            tick={{ fill: "white", fontSize: "10px" }}
+            dataKey="kind"
+          />
+          <Radar
+            style={{ width: "170px" }}
+            name="User"
+            dataKey="value"
+            fill="#FF0101"
+            fillOpacity={0.6}
+          />
         </RadarChart>
       </ResponsiveContainer>
     </div>

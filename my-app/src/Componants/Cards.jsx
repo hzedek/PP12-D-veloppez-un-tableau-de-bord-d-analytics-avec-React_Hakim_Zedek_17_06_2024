@@ -13,7 +13,6 @@ function Cards() {
   const glucidesData = `${keyData.carbohydrateCount}g`;
   const lipidesData = `${keyData.lipidCount}g`;
 
-  console.log(keyData);
   return (
     <div className="CardsLayout">
       <div className="divCard">
