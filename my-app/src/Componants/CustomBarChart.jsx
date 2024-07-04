@@ -1,4 +1,3 @@
-//import datas from "../mock.json";
 import React, { useState } from "react";
 import {
   XAxis,
@@ -12,16 +11,16 @@ import {
 import ApiCall from "./ApiCall";
 
 const CustomTooltip = ({ active, payload }) => {
-    if (active && payload && payload.length) {
-      return (
-        <div className="tooltip">
-          <p style={{ margin: 0 }}>{ `${payload[1].value}kg`}</p>
-          <p style={{ margin: 0 }}>{` ${payload[0].value}Kcal`}</p>
-        </div>
-      );
-    }
+  if (active && payload && payload.length) {
+    return (
+      <div className="tooltip">
+        <p style={{ margin: 0 }}>{`${payload[1].value}kg`}</p>
+        <p style={{ margin: 0 }}>{`${payload[0].value}Kcal`}</p>
+      </div>
+    );
+  }
 
-    return null;
+  return null;
 };
 
 const CustomBarChart = () => {
@@ -30,22 +29,15 @@ const CustomBarChart = () => {
   const handleDataFetch = (data) => {
     setDatas(data);
   };
-
+  
   if (!datas) {
     return <ApiCall prop="12/activity" onDataFetch={handleDataFetch} />;
   }
 
-  function KgArray() {
-    let KgArray = [];
-    for (let i = 0; i < datas.sessions.length; i++) {
-      const element = datas.sessions[i];
-      KgArray.push(element.kilogram);
-    }
-    return KgArray;
-  }
 
-  const maxValue = Math.max(...KgArray());
-  const minValue = Math.min(...KgArray());
+  const kgArray = datas.sessions.map(session => session.kilogram);
+  const maxValue = Math.max(...kgArray);
+  const minValue = Math.min(...kgArray);
   const midValue = (maxValue + minValue) / 2;
 
   return (

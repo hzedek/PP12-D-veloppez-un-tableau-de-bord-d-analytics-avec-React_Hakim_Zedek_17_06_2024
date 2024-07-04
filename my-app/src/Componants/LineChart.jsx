@@ -52,10 +52,10 @@ const CustomLineChart = () => {
             style={{ fill: "#FFFFFF" }}
           />
           <YAxis domain={[-10, 100]} hide="true" />
-          <Tooltip
+          <Tooltip 
             content={
               <LineTooltip /> //STyle the Tooltip
-            }
+            } cursor={false}
           />
           <Line
             dot={false}

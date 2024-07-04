@@ -11,6 +11,7 @@ function NavVertical() {
       <img src={icon2} alt="icon" />
       <img src={icon3} alt="icon" />
       <img src={icon4} alt="icon" />
+      <p>Copiryght, SportSee 2020</p>
     </div>
   );
 }

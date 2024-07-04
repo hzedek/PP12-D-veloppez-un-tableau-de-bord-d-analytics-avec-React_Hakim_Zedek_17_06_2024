@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 
 function ApiCall({ prop, onDataFetch }) {
-  const [data, setData] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
@@ -13,7 +12,6 @@ function ApiCall({ prop, onDataFetch }) {
           throw new Error("Erreur lors de la récupération des données");
         }
         const result = await response.json();
-        setData(result.data);
         onDataFetch(result.data); // Pass data to parent component
       } catch (error) {
         setError(error.message);
@@ -27,7 +25,7 @@ function ApiCall({ prop, onDataFetch }) {
 
   if (loading) return <p>Chargement...</p>;
   if (error) return <p>Erreur : {error}</p>;
-  return null; // Don't render anything
+  return null;
 }
 
 export default ApiCall;
