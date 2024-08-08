@@ -33,7 +33,6 @@ const CustomBarChart = () => {
       const maxValue = Math.max(...kgArray);
       const minValue = Math.min(...kgArray);
       const midValue = (maxValue + minValue) / 2;
-      console.log(userData.sessions,"les données",userData);
       return (
         <ResponsiveContainer width="100%" height={200}>
           <BarChart

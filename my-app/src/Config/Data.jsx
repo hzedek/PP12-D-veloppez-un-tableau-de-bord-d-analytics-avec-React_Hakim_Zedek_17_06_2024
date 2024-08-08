@@ -6,8 +6,13 @@
 //   getUserPerformance,
 // } from "./mock";
 
-import React, { Component } from 'react';
-import { ApiCallid, ApiCallActivity, ApiCallPerformance, ApiCallAverageSession } from './ApiCall';
+import React, { Component } from "react";
+import {
+  ApiCallid,
+  ApiCallActivity,
+  ApiCallPerformance,
+  ApiCallAverageSession,
+} from "./ApiCall";
 
 class UserProfile extends Component {
   constructor(props) {
@@ -26,8 +31,12 @@ class UserProfile extends Component {
       let userData;
       switch (dataType) {
         case "userInfos":
-         let userDatas = await ApiCallid(id);
-           userData = {
+          let userDatas = await ApiCallid(id);
+          let userScore = userDatas.todayScore
+          if (!userScore) {
+            userScore=userDatas.score
+          } 
+          userData = {
             //model the data
             id: userDatas.id,
             userInfos: {
@@ -35,33 +44,41 @@ class UserProfile extends Component {
               lastName: userDatas.userInfos.lastName,
               age: userDatas.userInfos.age,
             },
-            todayScore: userDatas.todayScore,
+            todayScore: userScore,
             keyData: userDatas.keyData,
           };
           break;
         case "activity":
-        let  activityDatas = await ApiCallActivity(id);
+          let activityDatas = await ApiCallActivity(id);
           userData = {
             userId: activityDatas.userId,
-          sessions: activityDatas.sessions.map(session => ({
-            day: session.day,
-            kilogram: session.kilogram,
-            calories: session.calories
-          }))
-          }
+            sessions: activityDatas.sessions.map((session) => ({
+              day: session.day,
+              kilogram: session.kilogram,
+              calories: session.calories,
+            })),
+          };
           break;
-        case 3:
-          userData = await ApiCallPerformance(id);
+        case "performance":
+          let performanceData = await ApiCallPerformance(id);
+          userData = {
+            id: performanceData.userId,
+            kind: performanceData.kind,
+            data: performanceData.data.map((item) => ({
+              value: item.value,
+              kind: item.kind,
+            })),
+          };
           break;
-        case "session":
-         userDatas = await ApiCallAverageSession(id);
-         userData={
-            id: userDatas.id,
-            sessions: [
-                {day: userDatas.session.day,
-                    sessionLength:userDatas.session.sessionLength
-                }]
-         }
+        case "averageSession":
+          let averageSessionData = await ApiCallAverageSession(id);
+          userData = {
+            id: averageSessionData.userId,
+            sessions: averageSessionData.sessions.map((session) => ({
+              day: session.day,
+              sessionLength: session.sessionLength,
+            })),
+          };
           break;
         default:
           throw new Error("Invalid dataType");
@@ -90,11 +107,7 @@ class UserProfile extends Component {
     }
 
     // Utilisez les données pour le rendu
-    return (
-      <div>
-        {this.props.render(userData)}
-      </div>
-    );
+    return <div>{this.props.render(userData)}</div>;
   }
 }
 

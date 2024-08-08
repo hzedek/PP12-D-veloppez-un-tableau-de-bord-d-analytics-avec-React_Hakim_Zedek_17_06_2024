@@ -1,9 +1,9 @@
 import "../styles/ChartsLayout.scss";
 import CustomBarChart from "./CustomBarChart";
-// import CustomLineChart from "./LineChart";
-// import CustomRadarChart from "./CustomRadarChart";
-// import CustomRadialBarChart from "./RadialBarChart";
-// import Cards from "./Cards";
+import CustomLineChart from "./LineChart";
+import CustomRadarChart from "./CustomRadarChart";
+import CustomRadialBarChart from "./RadialBarChart";
+import Cards from "./Cards";
 import React from "react";
 
 function ChartsLayout() {
@@ -21,13 +21,13 @@ function ChartsLayout() {
         </div>
         <CustomBarChart />
         <div className="DivChartsLayout">
-          {/* <CustomLineChart />
-          <CustomRadarChart />
-          <CustomRadialBarChart /> */}
+          <CustomLineChart />
+           <CustomRadarChart />
+          <CustomRadialBarChart />
         </div>
       </aside>
       <aside>
-        {/* <Cards /> */}
+        <Cards />
       </aside>
     </div>
   );
