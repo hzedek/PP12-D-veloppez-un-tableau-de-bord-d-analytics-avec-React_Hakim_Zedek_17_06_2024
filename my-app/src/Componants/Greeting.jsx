@@ -1,25 +1,22 @@
-//import datas from "../mock.json";
-import React, { useState, Fragment  } from "react";
-import ApiCall from "./ApiCall";
+import React, {Fragment} from "react";
+import { useParams } from 'react-router-dom'
+import UserProfile from "../Config/Data";
 
-function Greeting() {
-  const [datas, setDatas] = useState(null);
 
-  const handleDataFetch = (data) => {
-    setDatas(data);
-  };
+const Greeting = () => {
+  const { id } = useParams()
 
-  if (!datas) {
-    return <ApiCall prop="12" onDataFetch={handleDataFetch} />;
-  }
-  const name = datas.userInfos.firstName;
   return (
-    <Fragment>
-      <h2>
-        Bonjour <span className="redSpan">{name}</span>
-      </h2>
-      <h3>Félicitation ! Vous avez explosé vos objectifs hier 👏</h3>
-    </Fragment>
+    <UserProfile id={id} dataType={"userInfos"} render={(userData) => (
+      <Fragment>
+        <h2>
+          Bonjour <span className="redSpan">{userData.userInfos.firstName}</span>
+        </h2>
+        <h3>Félicitation ! Vous avez explosé vos objectifs hier 👏</h3>
+      </Fragment>
+    )} />
   );
+
 }
+
 export default Greeting;
