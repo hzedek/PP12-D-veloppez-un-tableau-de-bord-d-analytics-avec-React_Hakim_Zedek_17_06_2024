@@ -8,8 +8,16 @@
   gap: 10px;
   justify-content: center;
   z-index: 2;
+  position: relative;
 }
 .navVertical img {
   width: 64px;
   margin: 0 auto;
+}
+.navVertical p {
+  position: absolute;
+  rotate: -90deg;
+  bottom: 80px;
+  text-wrap: nowrap;
+  font-size: 10px;
 }/*# sourceMappingURL=navVertical.css.map */

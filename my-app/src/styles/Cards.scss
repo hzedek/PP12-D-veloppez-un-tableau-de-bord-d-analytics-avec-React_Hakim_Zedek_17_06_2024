@@ -8,13 +8,13 @@
     height: 124px;
     background-color:#FBFBFB;
     display: flex;
-    justify-content: space-between;
     align-items: center;
     border-radius: 5px;
     padding: 0 30px;
     img {
       width: 60px;
       height: 60px;
+      margin-right: 30px;
     }
     .divCardText{
         display: flex;
