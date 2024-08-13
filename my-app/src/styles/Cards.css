@@ -21,7 +21,7 @@
   display: flex;
   flex-direction: column;
   height: 60px;
-  justify-content: space-between;
+  justify-content: space-around;
 }
 .CardsLayout .divCard .divCardText p:first-child {
   font-size: 20px;
