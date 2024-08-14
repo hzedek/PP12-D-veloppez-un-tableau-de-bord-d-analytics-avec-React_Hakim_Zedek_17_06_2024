@@ -272,7 +272,7 @@ const UserPerformance = [
 * @returns {Promise<Userdata>} The main information of the user.
 * @throws {Error} If an error occurs while retrieving the data.
 */
-export const getUserInfos = async (id) => {
+export const ApiCallid = async (id) => {
 try {
   const res = Userdata.find((el) => el.id == id);// eslint-disable-line
   return res;
@@ -289,7 +289,7 @@ try {
 * @returns {Promise<UserActivity>} The activity's data of the user.
 * @throws {Error} If an error occurs while retrieving the data.
 */
-export const getUserActivity = async (id) => {
+export const ApiCallActivity = async (id) => {
 try {
   const res = UserActivity.find((el) => el.userId == id);// eslint-disable-line
   return res;
@@ -306,7 +306,7 @@ try {
 * @returns {Promise<UserAverageSessions>} The average session duration of the user.
 * @throws {Error} If an error occurs while retrieving the data.
 */
-export const getUserAverageSessions = async (id) => {
+export const ApiCallAverageSession = async (id) => {
 try {
   const res = UserAverageSessions.find((el) => el.userId == id);// eslint-disable-line
   return res;
@@ -323,7 +323,7 @@ try {
 * @returns {Promise<UserPerformance>} The performance of the user.
 * @throws {Error} If an error occurs while retrieving the data.
 */
-export const getUserPerformance = async (id) => {
+export const ApiCallPerformance = async (id) => {
 try {
   const res = UserPerformance.find((el) => el.userId == id);// eslint-disable-line
   return res;

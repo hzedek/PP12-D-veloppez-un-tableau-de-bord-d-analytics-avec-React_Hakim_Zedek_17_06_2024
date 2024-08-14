@@ -1,9 +1,8 @@
-// import { getUserActivity,getUserAverageSessions, getUserInfos, getUserPerformance, } from "./Api";
 // import {
-//   getUserActivity,
-//   getUserAverageSessions,
-//   getUserInfos,
-//   getUserPerformance,
+//     ApiCallid,
+// ApiCallActivity,
+// ApiCallPerformance,
+// ApiCallAverageSession,
 // } from "./mock";
 
 import React, { Component } from "react";
@@ -32,10 +31,10 @@ class UserProfile extends Component {
       switch (dataType) {
         case "userInfos":
           let userDatas = await ApiCallid(id);
-          let userScore = userDatas.todayScore
+          let userScore = userDatas.todayScore;
           if (!userScore) {
-            userScore=userDatas.score
-          } 
+            userScore = userDatas.score;
+          }
           userData = {
             //model the data
             id: userDatas.id,
