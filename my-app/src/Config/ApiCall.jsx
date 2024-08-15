@@ -1,3 +1,4 @@
+
 export const ApiCallid = async (id) => {
     try {
       const response = await fetch(`http://localhost:3000/user/${id}`);
@@ -8,10 +9,10 @@ export const ApiCallid = async (id) => {
   
       const result = await response.json();
   
-      return result.data; // Assurez-vous de retourner les données et non un Promise
+      return result.data;
     } catch (error) {
       console.error('Fetch error:', error);
-      throw error; // Re-throw the error for handling in the component
+      throw error; 
     }
   };
 
@@ -25,10 +26,10 @@ export const ApiCallid = async (id) => {
   
       const result = await response.json();
   
-      return result.data; // Assurez-vous de retourner les données et non un Promise
+      return result.data; 
     } catch (error) {
       console.error('Fetch error:', error);
-      throw error; // Re-throw the error for handling in the component
+      throw error; 
     }
   };
 
@@ -42,10 +43,10 @@ export const ApiCallid = async (id) => {
   
       const result = await response.json();
   
-      return result.data; // Assurez-vous de retourner les données et non un Promise
+      return result.data; 
     } catch (error) {
       console.error('Fetch error:', error);
-      throw error; // Re-throw the error for handling in the component
+      throw error; 
     }
   };
   
@@ -60,9 +61,9 @@ export const ApiCallid = async (id) => {
   
       const result = await response.json();
   
-      return result.data; // Assurez-vous de retourner les données et non un Promise
+      return result.data; 
     } catch (error) {
       console.error('Fetch error:', error);
-      throw error; // Re-throw the error for handling in the component
+      throw error;
     }
   };
